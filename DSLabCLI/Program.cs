@@ -1,9 +1,11 @@
-﻿namespace DSLab;
+﻿using Spectre.Console;
+
+namespace DSLab;
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+       AnsiConsole.Markup("[bold green]Hello[/], World!");
     }
 }
