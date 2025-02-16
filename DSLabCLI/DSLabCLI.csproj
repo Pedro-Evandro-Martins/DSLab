@@ -4,6 +4,10 @@
     <ProjectReference Include="..\DSLabLib\DSLabLib.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console" Version="0.49.1" />
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
