@@ -33,7 +33,7 @@ public class Navigator
 
     private void HandleInput()
     {
-        throw new NotImplementedException();
+        this._composer.PassthroughInput();
     }
 
     public void NavigateTo(IView view)

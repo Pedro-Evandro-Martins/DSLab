@@ -7,9 +7,9 @@ public class ViewComposer
 {
     private readonly IView _headerView;
     private readonly IView _footerView;
-    private IView CurrentView { get; set; }
+    private IView _currentView;
 
-    ViewComposer(IView headerView, IView footerView)
+    public ViewComposer(IView headerView, IView footerView)
     {
         _footerView = footerView;
         _headerView = headerView;
@@ -17,12 +17,24 @@ public class ViewComposer
 
     public void ComposeView(IView view)
     {
-        this.CurrentView = view;
+        this._currentView = view;
         
         AnsiConsole.Clear();
         
         this._headerView.Render();
-        this.CurrentView.Render();
+        this._currentView.Render();
         this._footerView.Render();
+    }
+
+    public void PassthroughInput()
+    {
+        if(this._headerView.HandleInput())
+            return;
+
+        if (this._currentView.HandleInput())
+            return;
+        
+        if (this._footerView.HandleInput())
+            return;
     }
 }
